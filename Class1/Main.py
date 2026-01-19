@@ -188,3 +188,10 @@ if age2 >= 18:
     print("Adult")
 else:
     print("Minor")
+    
+    
+# LOOPS IN PYTHON
+# FOR LOOP
+#Para cada número i desde 0 hasta 4, imprime ese número
+for i in range(5):
+    print(i)

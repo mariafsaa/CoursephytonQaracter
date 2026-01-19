@@ -1,0 +1,104 @@
+PROYECTO NUMPY – ANÁLISIS DE RENDIMIENTO DE ATLETAS
+=================================================
+
+Objetivo:
+Construir un sistema de análisis de datos que evalúe y compare el rendimiento de atletas usando únicamente NumPy (sin pandas).
+
+El sistema debe:
+- Procesar datos numéricos en forma de matriz
+- Calcular métricas de rendimiento
+- Detectar fortalezas, debilidades y consistencia
+- Ordenar a los atletas de forma objetiva
+
+-------------------------------------------------
+DESCRIPCIÓN DE LOS DATOS
+-------------------------------------------------
+Filas  -> Atletas  
+Columnas -> Métricas de rendimiento
+
+Columnas:
+0 -> Fuerza (Strength)
+1 -> Velocidad (Speed)
+2 -> Resistencia (Stamina)
+3 -> Durabilidad (Durability)
+4 -> Agilidad (Agility)
+
+Datos de ejemplo:
+
+data = np.array([
+    [80, 75, 90, 85, 70],
+    [65, 88, 78, 72, 85],
+    [90, 70, 85, 88, 60],
+    [72, 82, 80, 75, 78]
+])
+
+Nombres de los atletas (opcional):
+athlete_names = np.array([
+    "Fighter A",
+    "Fighter B",
+    "Fighter C",
+    "Fighter D"
+])
+
+-------------------------------------------------
+1. ESTADÍSTICAS BÁSICAS (CALENTAMIENTO)
+-------------------------------------------------
+Calcular:
+- Promedio de rendimiento por atleta
+- Promedio de rendimiento por métrica
+- Valores máximos y mínimos por métrica
+- Desviación estándar por atleta (consistencia)
+
+-------------------------------------------------
+2. NORMALIZACIÓN
+-------------------------------------------------
+Normalizar los datos a una escala de 0 a 1 para que las comparaciones sean justas.
+
+Fórmula:
+(valor - mínimo) / (máximo - mínimo)
+
+-------------------------------------------------
+3. PUNTAJE FINAL PONDERADO
+-------------------------------------------------
+Asignar importancia a cada métrica.
+
+Ejemplo de pesos:
+weights = np.array([0.25, 0.20, 0.25, 0.15, 0.15])
+
+Cálculo:
+final_score = normalized_data @ weights
+
+-------------------------------------------------
+4. SISTEMA DE RANKING
+-------------------------------------------------
+Ordenar a los atletas de mejor a peor según el puntaje final.
+
+Ejemplo de salida esperada:
+1st: Fighter C
+2nd: Fighter A
+3rd: Fighter B
+4th: Fighter D
+
+-------------------------------------------------
+5. DETECCIÓN DE FORTALEZAS Y DEBILIDADES
+-------------------------------------------------
+Para cada atleta:
+- Identificar la métrica más fuerte
+- Identificar la métrica más débil
+
+-------------------------------------------------
+6. ANÁLISIS DE CONSISTENCIA
+-------------------------------------------------
+Determinar:
+- Quién es el atleta más consistente
+- Quién es el atleta más desbalanceado
+
+Usar:
+np.std(data, axis=1)
+
+Tip:
+Menor desviación estándar = mayor consistencia
+
+-------------------------------------------------
+FIN DEL PROYECTO
+-------------------------------------------------
