@@ -132,3 +132,20 @@ for apt, original, normalized in zip( number_of_apartments,mean_consumo_apartame
         f"\n   Normalized consumption level: {normalized:.2f}"
     )
 
+# Ranking de eficiencia energética
+# Crear ranking
+# Score de eficiencia (más alto = más eficiente)
+std_consumo_apartamento = np.std(consumo, axis=1)
+min_std = std_consumo_apartamento.min()
+std_norm = (std_consumo_apartamento - min_std) / (std_consumo_apartamento.max() - min_std)
+efficiency_score = (1 - mean_norm) + (1 - std_norm)
+
+ranking = list(zip(
+    number_of_apartments,
+    mean_consumo_apartamento,
+    std_consumo_apartamento,
+    efficiency_score
+))
+
+# Ordenar del más eficiente al menos eficiente
+ranking_sorted = sorted(ranking, key=lambda x: x[3], reverse=True)
