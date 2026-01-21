@@ -1,0 +1,111 @@
+#¿QUÉ ES PANDAS?
+Pandas es una librería de Python que se usa para trabajar con datos en forma de tablas.
+Permite organizar, manipular, limpiar y analizar grandes volúmenes de datos de forma sencilla.
+
+Pandas trabaja principalmente con estructuras llamadas:
+- Series: representan una columna de datos.
+- DataFrame: representan una tabla completa (filas y columnas).
+
+Una Series puede almacenar diferentes tipos de datos
+- Números
+- Texto
+- Valores mixtos
+
+Cada elemento de una Series tiene:
+- Un valor
+- Un índice (etiqueta)
+
+CÓMO CREAR UNA SERIE
+
+Ejemplo básico:
+import pandas as pd
+
+s = pd.Series([10, 20, 30, 40])
+print(s)
+
+La Series se verá así:
+0    10
+1    20
+2    30
+3    40
+
+ÍNDICE DE UNA SERIES
+Por defecto, Pandas crea un índice automático empezando en 0.
+También se puede definir un índice personalizado:
+s = pd.Series([10, 20, 30], index=["a", "b", "c"])
+
+ACCEDER A DATOS EN UNA SERIES
+Acceder por índice:
+s[0]
+Acceder por etiqueta:
+s["a"]
+
+OPERACIONES BÁSICAS CON SERIES
+Suma:
+s + 5
+Multiplicación:
+s * 2
+Promedio:
+s.mean()
+
+TAMAÑO DE UNA SERIES
+len(s)
+
+VALORES ÚTILES
+Ver valores:
+s.values
+Ver índices:
+s.index
+
+¿CÓMO LEER UN CSV CON PANDAS?
+df se entiende como DataFrame
+df = pd.read_csv("temperaturas.csv")
+print(df)
+
+¿QUÉ HACE .describe() EN PANDAS?
+El método .describe() se utiliza para obtener un resumen estadístico de una Series o DataFrame.
+Cuando se aplica a una Series numérica, .describe() muestra:
+- count: número de valores válidos (no nulos)
+- mean: promedio de los valores
+- std: desviación estándar (qué tanto se dispersan los datos)
+- min: valor mínimo
+- 25%: primer cuartil (el 25% de los datos está por debajo de este valor)
+- 50%: mediana (valor central)
+- 75%: tercer cuartil (el 75% de los datos está por debajo de este valor)
+- max: valor máximo
+
+print("\nTemperature Series Info:")
+print(temp_series.describe())
+
+Este código imprime en pantalla un resumen estadístico completo de la serie de temperaturas,
+permitiendo analizar cantidad de datos, promedio, dispersión y rangos de valores.
+
+¿CÓMO CALCULAR LOS PERCENTILES?
+serie.quantile(valor)
+temp_series.quantile(0.25) : P25
+temp_series.quantile(0.50) : P50, ES la mediana
+
+Se pueden CALCULAR varios PERCENTILES  a la vez
+temp_series.quantile([0.25, 0.5, 0.75])
+
+Salida : 
+0.25    19.50
+0.50    22.35
+0.75    25.60
+Name: temperatura_c, dtype: float64
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'
