@@ -149,3 +149,43 @@ ranking = list(zip(
 
 # Ordenar del más eficiente al menos eficiente
 ranking_sorted = sorted(ranking, key=lambda x: x[3], reverse=True)
+
+print("\n5.5 Energy efficiency ranking:")
+
+pos = 1
+for apt, mean_c, std_c, score in ranking_sorted:
+    print(
+        f"{pos}. {apt} | "
+        f"avg={mean_c:.2f} kWh | "
+        f"std={std_c:.2f} | "
+        f"score={score:.2f}"
+    )
+    pos += 1
+
+#Detección de apartamentos atípicos (outliers)
+# Identificar apartamentos cuyo consumo es muy diferente al resto
+mean_all = mean_consumo_apartamento.mean()
+std_all = mean_consumo_apartamento.std()    
+z_scores = (mean_consumo_apartamento - mean_all) / std_all # qur tan lejos estan del promedio en terminos de desviaciones estandar
+print("\n5.6 Apartments with unusual energy consumption:")
+
+threshold = 2.0
+found = False
+
+for apt, mean_c, z in zip(number_of_apartments, mean_consumo_apartamento, z_scores):
+    if abs(z) >= threshold:
+        found = True
+
+        print(f"\n   Apartment {apt}")
+        print(f"   Average consumption: {mean_c:.2f} kWh")
+        print(f"   Difference from others: {z:.2f}")
+
+        if z > 0:
+            print("   This apartment consumes much more energy than the rest")
+        else:
+            print("   This apartment consumes much less energy than the rest")
+
+        print("   This may indicate a technical issue or unusual usage")
+
+if not found:
+    print("   All apartments show similar consumption patterns")
