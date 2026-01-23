@@ -1,0 +1,38 @@
+ # <0 invalid shuld be ignored
+# 0 exam no presented
+# > 9 excelent
+# >11 break processing
+# total scores =  valid scores including 0
+# scores_excelent = number of excelent scores
+# scores_total =  sum of valid scores
+scores = [5, 7, -2, 10, 8, 0, 12]
+valid_scores = 0
+scores_excelent = 0
+scores_total = 0
+
+for score in scores:
+    if type(score) == int or type(score) == float:
+        if score < 0:
+            print(f"Invalid data {score}, skipping .")
+            continue
+        if score > 11:
+            print("Overwork detected, stopping processing.")
+            break
+        if score > 9:
+            scores_excelent += 1
+            scores_total += score
+            valid_scores += 1
+        elif score == 0:
+            valid_scores += 1
+            scores_total += score
+            print("Exam not presented. Valid score with 0 points.")
+        else:
+            scores_total += score
+            valid_scores += 1
+
+print(f"""
+Results:    
+-------------------------
+Total valid scores: {valid_scores}          
+Total scores: {scores_total} 
+Excelent scores: {scores_excelent}   """)

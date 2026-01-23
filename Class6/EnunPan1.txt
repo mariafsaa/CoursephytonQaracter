@@ -1,0 +1,143 @@
+Contexto del Proyecto
+
+Una empresa de comercio electrónico quiere entender mejor cómo se comportan sus clientes, qué impulsa los ingresos y dónde se están perdiendo ventas.
+Actualmente, exportan los datos transaccionales de su plataforma en archivos CSV, pero no cuentan con análisis estructurados que les permitan obtener conclusiones claras.
+
+Tú eres contratado para construir un pipeline de análisis de datos usando Pandas, que transforme los datos transaccionales crudos en insights de negocio claros y accionables.
+
+🗂️ Descripción de los Datos
+
+Recibes múltiples archivos CSV:
+
+📄 orders.csv
+
+order_id
+
+customer_id
+
+order_date
+
+total_amount
+
+payment_method
+
+📄 order_items.csv
+
+order_id
+
+product_id
+
+quantity
+
+unit_price
+
+📄 customers.csv
+
+customer_id
+
+signup_date
+
+country
+
+age
+
+📄 products.csv
+
+product_id
+
+category
+
+cost_price
+
+⚠️ Problemas de Calidad de Datos
+
+Los datos están desordenados y presentan varios inconvenientes:
+
+Valores faltantes
+
+Formatos de fecha inconsistentes
+
+Clientes duplicados
+
+Órdenes con reembolsos o totales en cero
+
+ Objetivos del Proyecto
+ Limpieza y Preparación de Datos
+
+Parsear y estandarizar fechas
+
+Manejar valores faltantes o inválidos
+
+Eliminar duplicados y registros inconsistentes
+
+Validar las relaciones entre las tablas
+
+Segmentación de Clientes
+
+Analizar a los clientes según:
+
+Gasto total
+
+Frecuencia de compra
+
+Valor promedio por orden
+
+Clasificarlos en segmentos como:
+
+Clientes de alto valor
+
+Compradores ocasionales
+
+Clientes de bajo nivel de interacción
+
+📈 Análisis de Desempeño de Ventas
+
+Responder preguntas de negocio como:
+
+¿Qué categorías de productos generan más ingresos?
+
+¿Qué productos se venden con frecuencia pero generan poca ganancia?
+
+¿Cómo evolucionan los ingresos a lo largo del tiempo (mensual / trimestral)?
+
+ Análisis de Rentabilidad
+
+Usando cost_price y unit_price:
+
+Calcular la ganancia por producto
+
+Identificar productos con altos ingresos pero márgenes bajos
+
+Detectar productos que generan pérdidas
+
+ Retención de Clientes y Señales de Abandono (Churn)
+
+Identificar clientes recurrentes vs compradores de una sola vez
+
+Medir el tiempo entre compras
+
+Detectar señales tempranas de abandono (largos periodos de inactividad)
+
+ Insights por País y Demografía
+
+Analizar:
+
+Ingresos por país
+
+Patrones de gasto por grupo de edad
+
+Diferencias en métodos de pago según región
+
+Reportes de Negocio
+
+Generar tablas resumen claras, como:
+
+Top 10 clientes por valor de vida (lifetime value)
+
+Ingresos mensuales y tasa de crecimiento
+
+Categorías más rentables
+
+Lista de clientes en riesgo de abandono
+
+📌 Todos los resultados deben ser lo suficientemente claros como para que un gerente no técnico pueda entenderlos.
